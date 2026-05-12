@@ -1,0 +1,46 @@
+body{font-family:Arial,Helvetica,sans-serif;background:#121212;color:#eee;margin:0;padding:0}
+header{background:#121212; margin-top:20px; padding:4px 14px 6px; font-size:18px;font-weight:600;letter-spacing:.5px;max-width:925px;margin-left:auto;margin-right:auto}
+/* ASCII art should always fit without horizontal scroll; JS will resize font to fit. */
+header pre{display:block;margin:0 auto;text-align:center;font-family:monospace;line-height:1;letter-spacing:0;box-sizing:border-box;max-width:100%;
+	/* Preserve ASCII layout; no wrapping; also no horizontal scrollbar. */
+	white-space:pre; /* preserve spaces and line breaks exactly */
+	word-break:normal;
+	overflow-x:hidden; overflow-y:hidden; -webkit-overflow-scrolling:touch;
+}
+main{padding:8px 16px 16px;max-width:740px;margin:0 auto}
+form{background:#1d1f24;padding:16px;border-radius:8px;box-shadow:0 2px 6px rgba(0,0,0,.45)}
+h2{margin-top:32px}
+fieldset{border:1px solid #333;padding:12px 14px;margin-bottom:18px;border-radius:8px}
+legend{padding:0 6px;font-weight:600}
+label{display:block;margin:8px 0 4px;font-size:13px;opacity:.85}
+input,select{width:100%;padding:8px 9px;border:1px solid #444;border-radius:6px;background:#252a31;color:#eee;font-size:14px;box-sizing:border-box}
+.row{display:flex;gap:12px;flex-wrap:wrap}
+.col{flex:1 1 140px;min-width:140px}
+.inline{display:inline-block;width:auto}
+button{background:#2962ff;color:#fff;border:none;padding:10px 18px;border-radius:6px;font-size:15px;cursor:pointer;margin:2px 0 8px}
+button[type="submit"]{width:100%;box-sizing:border-box}
+button:hover{background:#1e50d4}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+footer{margin:40px 0 20px;text-align:center;font-size:12px;opacity:.55}
+.badge{display:inline-block;padding:2px 8px;border-radius:20px;background:#333;font-size:11px;margin-left:6px}
+.ok{color:#4caf50}
+.warn{color:#ffb300}
+.err{color:#f44336}
+.activeRow{background:rgba(41,98,255,0.18)!important}
+.activeBadge{background:#295094;color:#fff;border-radius:14px;padding:2px 8px;font-size:11px;margin-left:8px}
+code{background:#222;padding:2px 5px;border-radius:4px}
+hr{border:none;border-top:1px solid #333;margin:26px 0}
+.tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab-btn{background:#23272b;color:#ddd;padding:8px 12px;border-radius:6px;border:1px solid #333;cursor:pointer;font-weight:600;width:100%;box-sizing:border-box}
+.tab-btn.active{background:#295094;color:#fff;border-color:#295094}
+.tab-panels>.tab-panel{display:none}
+.tab-panels>.tab-panel.active{display:block;margin-top:8px}
+.tab-panel .grid-3{margin-top:6px}
+
+/* LED profiles details/summary styling */
+.led-details{border:1px solid #333;padding:0;border-radius:8px;margin-bottom:18px;background:#1d1f24}
+.led-details summary{list-style:none;cursor:pointer;padding:10px 14px;font-weight:600;color:#ddd;border-radius:8px;display:block}
+.led-details summary::-webkit-details-marker{display:none}
+.led-details[open] summary{background:#295094;color:#fff;border-bottom:1px solid rgba(0,0,0,0.25)}
+.led-details fieldset{border:none;margin:0;padding:12px 14px}

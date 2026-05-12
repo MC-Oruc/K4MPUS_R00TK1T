@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Device Config</title>
+  <link rel="stylesheet" href="/web/style.css">
+</head>
+<body>
+  <header id="hdrName">
+    <pre style="margin:0;text-align:center;font-family:monospace;font-size:11px;line-height:1.2;letter-spacing:0">
+ /$$   /$$ /$$   /$$ /$$      /$$ /$$$$$$$  /$$   /$$  /$$$$$$        /$$$$$$$   /$$$$$$   /$$$$$$  /$$   /$$   /$$ /$$$$$$$$
+| $$  /$$/| $$  | $$| $$$    /$$$| $$__  $$| $$  | $$ /$$__  $$      | $$__  $$ /$$$_  $$ /$$$_  $$| $$  /$$/ /$$$$|__  $$__/
+| $$ /$$/ | $$  | $$| $$$$  /$$$$| $$  \ $$| $$  | $$| $$  \__/      | $$  \ $$| $$$$\ $$| $$$$\ $$| $$ /$$/ |_  $$   | $$   
+| $$$$$/  | $$$$$$$$| $$ $$/$$ $$| $$$$$$$/| $$  | $$|  $$$$$$       | $$$$$$$/| $$ $$ $$| $$ $$ $$| $$$$$/    | $$   | $$   
+| $$  $$  |_____  $$| $$  $$$| $$| $$____/ | $$  | $$ \____  $$      | $$__  $$| $$\ $$$$| $$\ $$$$| $$  $$    | $$   | $$   
+| $$\  $$       | $$| $$\  $ | $$| $$      | $$  | $$ /$$  \ $$      | $$  \ $$| $$ \ $$$| $$ \ $$$| $$\  $$   | $$   | $$   
+| $$ \  $$      | $$| $$ \/  | $$| $$      |  $$$$$$/|  $$$$$$/      | $$  | $$|  $$$$$$/|  $$$$$$/| $$ \  $$ /$$$$$$ | $$   
+|__/  \__/      |__/|__/     |__/|__/       \______/  \______//$$$$$$|__/  |__/ \______/  \______/ |__/  \__/|______/ |__/   
+                                                             |______/                                                        
+    </pre>
+  </header>
+  <main>
+    <form method="post" action="/config">
+      <fieldset>
+        <legend>Cihaz</legend>
+        <label>Operating Mode</label>
+        <select name="mode" id="modeSel">
+          <option value="wifi">WiFi</option>
+          <option value="ble">BLE</option>
+          <option value="dual">DUAL (AP+BLE)</option>
+          <option value="dualsta">DUAL-STA (STA+BLE)</option>
+        </select>
+        <label>STA SSID</label>
+        <input name="sta_ssid" id="staSsid" maxlength="31" value="">
+        <label>STA Password</label>
+        <input type="password" name="sta_pass" id="staPass" maxlength="63" value="">
+  <label>Device Name</label>
+  <input name="name" id="devName" maxlength="31" value="">
+  <label>AP SSID</label>
+  <input name="ap_ssid" id="apSsid" maxlength="31" value="">
+  <label>AP Password</label>
+  <input type="password" name="ap_pass" id="apPass" maxlength="63" value="">
+        <label>Company ID (HEX)</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input name="company" id="companyInput" maxlength="4" pattern="[0-9A-Fa-f]{4}" value="" style="flex:1 1 120px">
+          <select id="companySelect" style="flex:2 1 220px">
+            <option value="">-- Liste Seç (veya elle yaz) --</option>
+          </select>
+        </div>
+        <small style="opacity:.55">Çakışmalı ID'ler hariç tutuldu.</small>
+      </fieldset>
+
+      <details class="led-details">
+        <summary>LED Profilleri</summary>
+        <fieldset>
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab-btn active" data-tab="general">Genel</button>
+          <button type="button" class="tab-btn" data-tab="wifi-state">WiFi Durumları</button>
+        </div>
+        <div class="tab-panels">
+          <div class="tab-panel active" id="tab-general">
+            <div class="grid-4">
+              <div>
+                <label>WiFi Mode</label>
+                <select name="led_wifi" id="led_wifi">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_wifi" id="speed_wifi" min="50" max="5000" step="50" value="500">
+              </div>
+              <div>
+                <label>BLE Mode</label>
+                <select name="led_ble" id="led_ble">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_ble" id="speed_ble" min="50" max="5000" step="50" value="500">
+              </div>
+              <div>
+                <label>Dual Mode</label>
+                <select name="led_dual" id="led_dual">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_dual" id="speed_dual" min="50" max="5000" step="50" value="500">
+              </div>
+              <div>
+                <label>Dual-STA Mode</label>
+                <select name="led_dualsta" id="led_dualsta">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_dualsta" id="speed_dualsta" min="50" max="5000" step="50" value="500">
+              </div>
+            </div>
+          </div>
+          <div class="tab-panel" id="tab-wifi-state">
+            <div class="grid-3">
+              <div>
+                <label>WiFi: Bağlanıyor</label>
+                <select name="led_wifi_conn" id="led_wifi_conn">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_wifi_conn" id="speed_wifi_conn" min="50" max="5000" step="50" value="250">
+              </div>
+              <div>
+                <label>WiFi: Bağlı</label>
+                <select name="led_wifi_ok" id="led_wifi_ok">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_wifi_ok" id="speed_wifi_ok" min="0" max="5000" step="50" value="0">
+              </div>
+              <div>
+                <label>WiFi: Hata/Kopuk</label>
+                <select name="led_wifi_err" id="led_wifi_err">
+                  <option value="on">on</option>
+                  <option value="off">off</option>
+                  <option value="blink">blink</option>
+                  <option value="pulse">pulse</option>
+                </select>
+                <label>Speed (ms)</label>
+                <input type="number" name="speed_wifi_err" id="speed_wifi_err" min="50" max="5000" step="50" value="200">
+              </div>
+            </div>
+          </div>
+        </div>
+        <small style="opacity:.65">Not: WiFi durum profilleri sadece STA (dualsta veya WiFi+STA) modunda uygulanır. Aksi halde ana profil geçerlidir.</small>
+        </fieldset>
+      </details>
+
+      <button type="submit">Kaydet</button>
+
+      <fieldset>
+        <legend>Zaman</legend>
+        <label>Cihaz Saatini Ayarla</label>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input type="datetime-local" id="dtLocal" style="flex:1 1 220px">
+          <button type="button" id="btnTimeSet">Ayarla</button>
+          <span id="timeMsg" style="font-size:12px;margin-left:8px"></span>
+        </div>
+        <div id="deviceTime" style="margin-top:6px;font-size:12px;opacity:.78">Cihaz saati okunuyor...</div>
+        <small style="opacity:.65">Tarayıcı saati alınır (UTC epoch + yerel offset) ve cihaza gönderilir. Cihaz Türkiye saati (UTC+3) gözetir.</small>
+      </fieldset>
+
+      <fieldset>
+        <legend>Ders Programı</legend>
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <tr style="background:#222">
+            <th style="text-align:left;padding:4px">Gün</th>
+            <th style="text-align:left;padding:4px">Saat</th>
+            <th style="text-align:left;padding:4px">Asıl Başlama</th>
+            <th style="text-align:left;padding:4px">Ders</th>
+          </tr>
+          <tbody id="schedTbody"></tbody>
+        </table>
+        <details style="margin-top:10px">
+          <summary>Programı Düzenle</summary>
+          <p style="opacity:.7;font-size:12px">Satır formatı: <code>dow,officialStart,end,actualStart,label</code></p>
+          <textarea id="schedEdit" style="width:100%;min-height:160px;background:#181c20;color:#ddd;border:1px solid #333;padding:6px;font-family:monospace;font-size:12px"></textarea>
+          <button type="button" id="saveSched" style="margin-top:8px">Programı Kaydet</button>
+          <span id="schedMsg" style="margin-left:10px;font-size:12px"></span>
+        </details>
+      </fieldset>
+
+      <div id="result" style="margin-top:14px;font-size:13px;padding:8px 10px;border:1px solid #333;border-radius:6px;display:none;background:#1e252b"></div>
+    </form>
+    <footer>
+      <p>Uptime: <span id="upt"></span> | Mode: <code id="modeVal"></code></p>
+    </footer>
+  </main>
+  <script src="/web/app.js"></script>
+  </body>
+  </html>

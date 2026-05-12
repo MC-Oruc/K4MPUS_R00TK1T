@@ -1,0 +1,14 @@
+led_mode_wifi=blink
+led_speed_wifi=500
+led_mode_ble=blink
+led_speed_ble=500
+led_mode_dual=blink
+led_speed_dual=500
+led_mode_dualsta=blink
+led_speed_dualsta=500
+led_mode_wifi_conn=pulse
+led_speed_wifi_conn=250
+led_mode_wifi_ok=on
+led_speed_wifi_ok=0
+led_mode_wifi_err=blink
+led_speed_wifi_err=200

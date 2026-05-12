@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": "."
+    },
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+        "editorIndentGuide.background1": "#FFFF4080",
+        "editorIndentGuide.background2": "#7FFF7F80",
+        "editorIndentGuide.background3": "#FF7FFF80",
+        "editorIndentGuide.background4": "#4FECEC80",
+        "editorIndentGuide.background5": "#FFC0CB80",
+        "editorIndentGuide.background6": "#ADD8E680",
+        "editorIndentGuide.activeBackground1": "#ffff40",
+        "editorIndentGuide.activeBackground2": "#7fff7f",
+        "editorIndentGuide.activeBackground3": "#ff7fff",
+        "editorIndentGuide.activeBackground4": "#4fecec",
+        "editorIndentGuide.activeBackground5": "#ffc0cb",
+        "editorIndentGuide.activeBackground6": "#add8e6",
+        "minimap.background": "#00000000",
+        "scrollbar.shadow": "#00000000"
+    },
+  }
+}

@@ -1,0 +1,28 @@
+.# .gitignore for a PlatformIO project (Raspberry Pi Pico / Pico W)
+.# Ignore PlatformIO build artifacts, caches, generated firmware, editor and OS files
+
+# PlatformIO build directories and caches
+.pio/
+.pioenvs/
+.build/
+.cache/
+
+# Editor directories
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment and secrets
+.env
+secrets.ini
+
+# Logs
+*.log
+
+# Config files
+data/config/**/*.txt
+!data/config/**/*.example
+data/config/wifi/*.txt
+!data/config/wifi/*.example
